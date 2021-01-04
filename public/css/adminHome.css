@@ -1,0 +1,14 @@
+.warna-tombol font{
+    color: #00b300;
+    font-weight: bold;
+}
+
+.icon{
+    width: 50px;
+    height: auto;
+}
+
+#slogan{
+    text-align: center;
+    color: #00b300;
+}

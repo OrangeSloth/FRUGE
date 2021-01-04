@@ -1,0 +1,16 @@
+.warna-tombol font{
+    color: #00b300;
+    font-weight: bold;
+}
+
+.gambar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#slogan{
+    text-align: center;
+    color: #00b300;
+}
