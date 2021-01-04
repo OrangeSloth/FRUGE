@@ -12,27 +12,29 @@
     <link href="{{ asset('css/adminHome.css') }}" type="text/css" rel="stylesheet">
   </head>
   <body>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-           <a href="{{ url('/admin') }}" class="navbar-brand">Fruit Storage</a>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+           <a href="{{ url('/admin') }}" class="navbar-brand"><img src="{{ asset('/assets/logo_home_bar.PNG')}}" class="img-responsive" alt="" height="50px" width="50px"/></a>
             <!-- <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
                 <span class="navbar-toggler icon"></span>
             </button> -->
             <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item warna-tombol">
+                        <a class="nav-link" href="{{ url('admin/penggunaan') }}"><font>Cara penggunaan</font></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link warna-tombol" href="{{ url('admin/fruits') }}"><font>Stok</font></a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('admin/penggunaan') }}">Cara penggunaan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('admin/fruits') }}">Stok</a>
-                    </li>
                     @php
                     $name = Auth::user()->name;
                     @endphp
                     <li class="nav-item">
-                        <a class="nav-link" href="">{{ $name }}</a>
+                        <a class="nav-link warna-tombol" href=""><font>{{ $name }}</font></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('logout') }}">Keluar</a>
+                        <a class="nav-link warna-tombol" id="tombol-keluar" href="{{ url('logout') }}"><font>Keluar</font></a>
                     </li>
                 </ul>
             </div>

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<table class="table">
+<table class="table warna-tabel">
   <thead class="thead-light">
     <tr>
       <th scope="col">No</th>
@@ -17,29 +17,33 @@
   <tbody>
     @foreach($requests as $request)
     <tr>
-      <th scope="row">{{ $loop->iteration }}</th>
-      <td>{{ $request->name }}</td>
-      <td>{{ $request->nama }}</td>
-      <td>{{ $request->amount }}</td>
+      <th scope="row"><div class="tinggi-atur">{{ $loop->iteration }}</div></th>
+      <td><div class="tinggi-atur">{{ $request->name }}</div></td>
+      <td><div class="tinggi-atur">{{ $request->nama }}</div></td>
+      <td><div class="tinggi-atur">{{ $request->amount }}</div></td>
       @if($request->is_accepted == 0)
       <td>
-        <form action="/admin/request/{{ $request->id }}" method="POST" data-remote="true" enctype="multipart/form-data">
-        @method('patch')
-        @csrf
-        <input type="hidden" name="is_accepted" id="acceptRequest" value="{{ 1 }}">
-        <input type="hidden" name="amount" id="acceptRequest" value="{{ $request->amount }}">
-        <button type="submit" class="btn btn-outline-success"  style="display: inline-block;" >Terima</button>
-        </form>
-        <form action="/admin/request/{{ $request->id }}" method="POST" data-remote="true" enctype="multipart/form-data">
-        @method('patch')
-        @csrf
-        <input type="hidden" name="is_accepted" id="acceptRequest2" value="{{ 2 }}">
-        <input type="hidden" name="amount" id="acceptRequest" value="{{ 0 }}">
-        <button type="submit" class="btn btn-outline-danger"  style="display: inline-block;">Tolak</button>
-        </form>
+        <div class="lurusan">
+          <form action="/admin/request/{{ $request->id }}" method="POST" class="terima" data-remote="true" enctype="multipart/form-data">
+            @method('patch')
+            @csrf
+            <input type="hidden" name="is_accepted" id="acceptRequest" value="{{ 1 }}">
+            <input type="hidden" name="amount" id="acceptRequest" value="{{ $request->amount }}">
+            <button type="submit" class="btn btn-outline-success"><img class="border-img" src="{{ asset('assets/accept_button.PNG') }}" alt=""></button>
+          </form>
+          <form action="/admin/request/{{ $request->id }}" method="POST" class="tolak" data-remote="true" enctype="multipart/form-data">
+            @method('patch')
+            @csrf
+            <input type="hidden" name="is_accepted" id="acceptRequest2" value="{{ 2 }}">
+            <input type="hidden" name="amount" id="acceptRequest" value="{{ 0 }}">
+            <button type="submit" class="btn btn-outline-danger"><img class="border-img" src="{{ asset('assets/reject_button.png') }}" alt=""></button>
+          </form>
+        </div>
       </td>
+      @elseif($request->is_accepted == 1)
+      <td><img class="border-img" src="{{ asset('assets/accepted_icon.PNG') }}"  alt=""></td>
       @else
-      <td><button  class="btn btn-outline-secondary " disabled >Telah Diproses</button></td>
+      <td><img class="border-img" src="{{ asset('assets/reject_icon.png') }}"  alt=""></td>
       @endif
     </tr>
     @endforeach

@@ -10,6 +10,20 @@
     </div>
 @endif
 
+
+<div class="container">
+  <div class="row">
+    @foreach($fruits as $fruit)
+    <div class="col-sm-3">
+      <div class="row">
+        {{ $loop->iteration }}
+      </div>  
+    </div>
+    @endforeach
+  </div>
+</div>
+
+
   <a class="btn btn-primary my-3" href="{{ url('admin/fruits/create') }}">
     Tambah Buah
   </a>

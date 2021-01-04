@@ -3,12 +3,41 @@
     font-weight: bold;
 }
 
-.icon{
-    width: 50px;
-    height: auto;
+#tombol-keluar font{
+    font-weight: bold;
+    color: red;
 }
 
-#slogan{
-    text-align: center;
-    color: #00b300;
+.table .thead-light th{
+    background-color: #4dff4d;
+}
+
+.border-img{
+    border:0;
+    text-decoration:none;
+    outline:none;
+}
+
+.tinggi-atur{
+    margin-top: 40px;
+}
+
+.lurusan {
+    width: 140px;
+}
+
+.lurusan form{
+    margin-top: 30px;
+    width: 62px;
+}
+
+.lurusan .terima{
+    float: left;
+    margin-right: 2px;
+
+}
+
+
+.lurusan .tolak{
+    float: right;
 }
