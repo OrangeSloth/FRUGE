@@ -3,6 +3,7 @@
 @section('title', 'Form Ubah Data Buah')
 
 @section('content')
+<link href="{{ asset('css/formEditBuah.css') }}" type="text/css" rel="stylesheet">
 
 @if (session('status'))
     <div class="alert alert-success">
@@ -30,8 +31,8 @@
             <div class="invalid invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
-    <a href="{{ url('admin/fruits') }}" class="btn btn-outline-danger" >Kembail</a>
-    <button type="submit" class="btn btn-outline-success" >Ubah !</button>
+    <a href="{{ url('admin/fruits') }}" class="btn btn-danger" >Kembail</a>
+    <button type="submit" class="btn btn-success" >Ubah</button>
   </form>
 
 @endsection

@@ -1,0 +1,14 @@
+h1{
+    color: #00b300;
+    font-size: 64px;
+}
+
+label{
+    color: #00b300;
+    font-size: 32px;
+}
+
+.ganti-hover:hover {
+    border-color: #00b300;
+ 
+ }

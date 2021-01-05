@@ -1,0 +1,61 @@
+.fruit{
+    width: 150px;
+    height: 250px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.gambar-buah img{
+    border-radius: 20px;
+    border:2px solid #4dff4d;
+}
+
+.nama-buah{
+    margin-right: auto;
+    margin-left: auto;
+    width: max-content;
+    margin-top: 2px;
+}
+
+.nama-buah font{
+    color: #00b300;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.qty-buah{
+    margin-right: auto;
+    margin-left: auto;
+    width: max-content;
+}
+
+.qty-buah font{
+    color: #00b300;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.tombol-buah{
+    height: 55px;
+}
+
+.tombol-buah img{
+    height: 45px;
+    width: 45px;
+}
+
+.update-buah{
+    float: left;
+    width: 40%;
+    padding-left: 22%;
+}
+
+.delete-buah{
+    float: right;
+    width: 40%;
+    padding-right: 58%;
+}
+
+.tombol-tambah{
+    margin-left: 35px;
+}

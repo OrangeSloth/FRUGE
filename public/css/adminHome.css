@@ -9,7 +9,7 @@
 }
 
 .table .thead-light th{
-    background-color: #4dff4d;
+    background-color: #00b300;
 }
 
 .border-img{
@@ -37,7 +37,14 @@
 
 }
 
+.terima button{
+    border: 0px;
+}
 
 .lurusan .tolak{
     float: right;
+}
+
+.tolak button{
+    border: 0px;
 }
