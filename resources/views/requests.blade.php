@@ -1,10 +1,11 @@
 @extends('layouts.userLayout')
 
-@section('title', 'Permintaan')
+@section('title', 'Riwayat')
 
 @section('content')
+<link href="{{ asset('css/request.css') }}" type="text/css" rel="stylesheet">
 
-<table class="table">
+<table class="table warna-tabel">
   <thead class="thead-light">
     <tr>
       <th scope="col">No</th>
@@ -17,20 +18,19 @@
   <tbody>
     @foreach($requests as $request)
     <tr>
-      <th scope="row">{{ $loop->iteration }}</th>
-      <td><img src="{{ asset('uploads/fruit/' . $request->image ) }}" width="100px" height="100px" alt="{{ $request->name }}"></td>
-      <td>{{ $request->name }}</td>
-      <td>{{ $request->amount }}</td>
+      <th scope="row"><div class="posisi-angka" >{{ $loop->iteration }}</div></th>
+      <td><div><img src="{{ asset('uploads/fruit/' . $request->image ) }}" width="100px" height="100px" alt="{{ $request->name }}"></div></td>
+      <td><div class="tinggi-atur">{{ $request->name }}</div></td>
+      <td><div class="tinggi-atur">{{ $request->amount }}</div></td>
       @if($request->is_accepted == 0)
-      <td>Pending</td>
+      <td><img class="border-img" src="{{ asset('assets/pending.png') }}"  alt=""></td>
       @elseif($request->is_accepted == 1)
-      <td>Diterima</td>
+      <td><img class="border-img" src="{{ asset('assets/accepted_icon.PNG') }}"  alt=""></td>
       @else
-      <td>Ditolak</td>
+      <td><img class="border-img" src="{{ asset('assets/reject_icon.PNG') }}"  alt=""></td>
       @endif
     </tr>
     @endforeach
   </tbody>
 </table>
-
 @endsection

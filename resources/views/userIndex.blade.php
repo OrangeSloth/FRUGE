@@ -4,38 +4,36 @@
 
 @section('content')
 
+<div class="row">
+  <div class="col-md-3">
+    <h1>Permintaan</h1>
+  </div>
+</div>
+
 @if (session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
     </div>
 @endif
 
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">No</th>
-      <th scope="col">Gambar</th>
-      <th scope="col">Nama Buah</th>
-      <th scope="col">Jumlah</th>
-      <th scope="col">Aktivitas</th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="container">
+  <div class="row">
     @foreach($fruits as $fruit)
-    <tr>
-      <th scope="row">{{ $loop->iteration }}</th>
-      <td><img src="{{ asset('uploads/fruit/' . $fruit->image ) }}" width="100px" height="100px" alt="{{ $fruit->name }}"></td>
-      <td>{{ $fruit->name }}</td>
-      <td>{{ $fruit->quantity }}</td>
-      <td>
-        <button type="button" id="TombolBuatPermintaan" class="TombolBuatPermintaan btn btn-primary my-3" type="button" data-toggle="modal" data-target="#exampleModalCenter" value="{{ $fruit->id }}" validation="{{ $fruit->quantity }}">
-          Buat Permintaan
-        </button>
-      </td>
-    </tr>
+    <div class="col-md-3">
+      <div class="fruit">
+        <div class="gambar-buah"><img src="{{ asset('uploads/fruit/' . $fruit->image ) }}" width="150px" height="150px" alt=""></div>
+        <div class="nama-buah"><font>{{ $fruit->name }}</font></div>
+        <div class="qty-buah"><font>{{ $fruit->quantity }}</font></div>
+        <div class="tombol-buah">
+          <button type="button" id="TombolBuatPermintaan" class="TombolBuatPermintaan" type="button" data-toggle="modal" data-target="#exampleModalCenter" value="{{ $fruit->id }}" validation="{{ $fruit->quantity }}">
+            <img class="border-img" src="{{ asset('assets/permintaan.PNG') }}"  alt="">
+          </button>
+        </div>
+      </div>  
+    </div>
     @endforeach
-  </tbody>
-</table>
+  </div>
+</div>
 
 @endsection
 
@@ -46,15 +44,15 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Buat Permintaan</h5>
+          <h4 class="modal-title" id="exampleModalLongTitle">Permintaan Buah</h4>
         </div>
         
         <form action="{{ url('user') }}" method="POST" data-remote="true" id="formAddRequest">
         @csrf
           <div class="modal-body">    
                   <div class="form-group">
-                      <label for="addFruitQuantity">Amount</label>
-                      <input type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" id="addRequestAmount" placeholder="Amount..." value="{{ old('amount') }}">
+                      <label for="addFruitQuantity"><font>Jumlah</font></label>
+                      <input type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" id="addRequestAmount" placeholder="Jumlah..." value="{{ old('amount') }}">
                       <!-- <div id="QuantityErrorMsg" class="invalid-feedback"></div> -->
                       @error('amount')
                           <div class="invalid invalid-feedback">{{ $message }}</div>
@@ -71,7 +69,7 @@
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-              <button type="submit" class="btn btn-success" id="submitAddButton">Tambah<button>
+              <button type="submit" class="btn btn-success" id="submitAddButton">Konfirmasi</button>
           </div>
         </form>
       </div>

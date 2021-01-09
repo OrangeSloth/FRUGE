@@ -9,23 +9,32 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="icon" class="icon" href="{{ asset('assets/logo_home_bar.PNG') }}"/>
     <title>@yield('title')</title>
+    <link href="{{ asset('css/userHome.css') }}" type="text/css" rel="stylesheet">
   </head>
   <body>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-           <a href="{{ url('/user') }}" class="navbar-brand">FRUGE</a>
+        <nav class="navbar navbar-expand navbar-light bg-light mb-3">
+           <a href="{{ url('/user') }}" class="navbar-brand"><img src="{{ asset('/assets/logo_home_bar.PNG')}}" class="img-responsive" alt="" height="50px" width="50px"/></a>
             <!-- <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
                 <span class="navbar-toggler icon"></span>
             </button> -->
             <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item warna-tombol">
+                        <a class="nav-link" href="{{ url('user/penggunaan') }}"><font>Cara Penggunaan</font></a>
+                    </li>
+                    <li class="nav-item warna-tombol">
+                        <a class="nav-link" href="{{ url('user/permintaan') }}"><font>Riwayat</font></a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav">
+                    @php
+                    $name = Auth::user()->name;
+                    @endphp
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('user/permintaan') }}">Permintaan</a>
+                        <a class="nav-link warna-tombol" href=""><font>{{ $name }}</font></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('user/penggunaan') }}">Penggunaan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('logout') }}">Logout</a>
+                        <a class="nav-link warna-tombol" id="tombol-keluar" href="{{ url('logout') }}"><font>Keluar</font></a>
                     </li>
                 </ul>
             </div>

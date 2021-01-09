@@ -1,0 +1,135 @@
+/* Bagian Navigasi */
+.warna-tombol font{
+    color: #00b300;
+    font-weight: bold;
+}
+
+#tombol-keluar font{
+    font-weight: bold;
+    color: red;
+}
+
+.table .thead-light th{
+    background-color: #00b300;
+}
+
+.border-img{
+    border:0;
+    text-decoration:none;
+    outline:none;
+}
+
+.tinggi-atur{
+    margin-top: 40px;
+}
+
+.lurusan {
+    width: 140px;
+}
+
+.lurusan form{
+    margin-top: 30px;
+    width: 62px;
+}
+
+.lurusan .terima{
+    float: left;
+    margin-right: 2px;
+
+}
+
+.terima button{
+    border: 0px;
+}
+
+.lurusan .tolak{
+    float: right;
+}
+
+.tolak button{
+    border: 0px;
+}
+
+
+/* Bagian User Page */
+
+.row{
+    margin-bottom: 35px;
+}
+
+h1{
+    color: #00b300;
+    font-size: 64px;
+}
+
+h4{
+    color: #00b300;
+}
+
+label{
+    margin-left: 6px;
+}
+
+label font{
+    color: #00b300;
+}
+
+.fruit{
+    width: 150px;
+    height: 250px;
+    margin-bottom: 80px;
+    padding-bottom: 20px;
+}
+
+.gambar-buah img{
+    border-radius: 20px;
+    border:2px solid #4dff4d;
+}
+
+.nama-buah{
+    margin-right: auto;
+    margin-left: auto;
+    width: max-content;
+    margin-top: 2px;
+}
+
+.nama-buah font{
+    color: #00b300;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.qty-buah{
+    margin-right: auto;
+    margin-left: auto;
+    width: max-content;
+}
+
+.qty-buah font{
+    color: #00b300;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.tombol-buah{
+    height: 55px;
+}
+
+#TombolBuatPermintaan{
+    border: 1px;
+    padding: 0px;
+}
+
+#TombolBuatPermintaan img{
+    border: 0px;
+    padding-left: 0px;
+}
+
+.tombol-buah img{
+    height: 50px;
+    width: auto;
+}
+
+#TombolBuatPermintaan:hover {
+    border-color: #00b300; 
+}

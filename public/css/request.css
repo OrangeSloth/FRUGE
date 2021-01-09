@@ -1,0 +1,26 @@
+.warna-tombol font{
+    color: #00b300;
+    font-weight: bold;
+}
+
+#tombol-keluar font{
+    font-weight: bold;
+    color: red;
+}
+
+.table .thead-light th{
+    background-color: #00b300;
+}
+
+
+.border-img{
+    border:0;
+    text-decoration:none;
+    outline:none;
+}
+
+.posisi-angka{
+    height: fit-content;
+    width: fit-content;
+    margin-top: 43px;
+}
