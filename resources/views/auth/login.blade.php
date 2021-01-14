@@ -13,30 +13,38 @@
                     <h1 class="ijo">Masuk</h1>
                 </div>
             </div>
-            <div class="row">
-            @if(\Session::has('alert'))
-                <div class="alert alert-danger">
-                    <div>{{Session::get('alert')}}</div>
+            @if(Session::has('alert'))
+                <div class="row">
+                    <div class="alert alert-danger">
+                        <div>{{Session::get('alert')}}</div>
+                    </div>
                 </div>
             @endif
-            @if(\Session::has('alert-success'))
+            @if(Session::has('alert-success'))
                 <div class="alert alert-success">
                     <div>{{Session::get('alert-success')}}</div>
                 </div>
             @endif
+            <div class="row">
                 <div class="col col-sm-8">
                     <form action="{{ url('/loginPost') }}" method="post">
                         <div class="row">
                             {{ csrf_field() }}
                             <div class="form-group col-md-12">
                                 <label for="email" class="ijo">Alamat email</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email"  value="{{ old('email') }}">
+                                @error('email')
+                                    <div class="invalid invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label for="alamat" class="ijo">Kata sandi</label>
-                                <input type="password" class="form-control" id="password" name="password"></input>
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}">
+                                @error('password')
+                                    <div class="invalid invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="row">

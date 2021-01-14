@@ -1,8 +1,22 @@
 @extends('layouts.adminLayout')
 
-@section('title', 'Home')
+@section('title', 'Beranda')
 
 @section('content')
+
+@if (session('login'))
+    <div class="alert alert-success">
+        {{ session('login') }}
+    </div>
+@endif
+
+<div class="row">
+  <div class="col mb-3">
+    <h1>Permintaan User</h1>
+  </div>
+</div>
+
+
 
 <table class="table warna-tabel">
   <thead class="thead-light">

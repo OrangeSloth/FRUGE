@@ -5,6 +5,10 @@
     padding-bottom: 20px;
 }
 
+h1{
+    color: #00b300;
+}
+
 .gambar-buah img{
     border-radius: 20px;
     border:2px solid #4dff4d;
@@ -56,6 +60,21 @@
     padding-right: 58%;
 }
 
+
+#submitDeleteButton{
+    border: 0px solid black;
+    margin-left: 5px;
+    width: 45px;
+    height: 45px;
+    background-color: white;
+}
+
+#submitDeleteButton:hover{
+    background-color: white;
+    color: white;
+    border-color: white ;
+}
+
 .tombol-tambah{
-    margin-left: 35px;
+    margin-left: 10px;
 }

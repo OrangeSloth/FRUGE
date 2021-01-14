@@ -35,9 +35,11 @@ class RequestController extends Controller
 
     public function permintaan()
     {
+        $id_user = auth()->user()->id;
+         
         $requests = ModelRequest::join('fruits', 'fruits.id', '=', 'request.fruit_id')
         ->select('request.*','fruits.*')
-        ->groupBy('request.id')
+        ->where('request.user_id', '=', $id_user)
         ->get();
 
         return view('requests', compact('requests'));
@@ -61,6 +63,12 @@ class RequestController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->amount > $request->validation_qty){
+            return redirect()->route('user.index')->with('status', 'Permintaan gagal dibuat, jumlah permintaan melebihi stok!');
+        }else if($request->amount == null){
+            return redirect()->route('user.index')->with('status', 'Permintaan gagal dibuat, isi jumlah permintaan!');
+        }else{
+
         $request->validate([
             'amount' => 'required|numeric|max:'. $request->validation_qty,
             'is_accepted' => 'required',
@@ -68,13 +76,16 @@ class RequestController extends Controller
             'fruit_id' => 'required',
         ]);
 
+        
         ModelRequest::create([    
             'amount' => $request->amount,
             'is_accepted' => $request->is_accepted,
             'user_id' =>  $request->user_id,
             'fruit_id' => $request->fruit_id,
         ]);
+        
         return redirect()->route('user.permintaan')->with('status', 'Permintaan dibuat!');
+        }
     }
 
     /**

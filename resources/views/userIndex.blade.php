@@ -4,14 +4,23 @@
 
 @section('content')
 
+
+@if (session('login'))
+    <div class="alert alert-success">
+        {{ session('login') }}
+    </div>
+@endif
+
+
+
 <div class="row">
   <div class="col-md-3">
     <h1>Permintaan</h1>
   </div>
 </div>
-
+  
 @if (session('status'))
-    <div class="alert alert-success">
+    <div class="alert alert-danger">
         {{ session('status') }}
     </div>
 @endif

@@ -14,7 +14,7 @@
                     <h1 class="ijo">Daftar</h1>
                 </div>
             </div>
-            @if ($errors->any())
+            <!-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -22,35 +22,45 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
+            @endif -->
             <div class="row">
                 <div class="col-sm-8">
                     <form action="{{ url('/registerPost') }}" method="post">
-                        {{ csrf_field() }}
+                    @csrf
                         <div class="form-group">
                             <label for="name" class="ijo">Nama lengkap</label>
-                            <input type="text"  class="form-control" id="name" name="name">
+                            <input type="text"  class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
+                            @error('name')
+                                <div class="invalid invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="email" class="ijo">Alamat email</label>
-                            <input type="email" class="form-control" id="email" name="email">
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
+                            @error('email')
+                                <div class="invalid invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="password" class="ijo">Kata sandi</label>
-                            <input type="password" class="form-control" id="password" name="password">
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}">
+                            @error('password')
+                                <div class="invalid invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="password_confirmation" class="ijo">Konfirmasi sandi</label>
-                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+                            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation"> 
+                            @error('password_confirmation')
+                                <div class="invalid invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <input type="hidden"  class="form-control" id="is_admin" name="is_admin" value="0">
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-md btn-primary" id="tombolIjo">Daftar</button>
-                            <label for="" class="ijo">sudah punya akun?</label>
-                            <a href="{{url('login')}}" class="warning">Masuk</a>
-                        </div>
+                        <button type="submit" class="btn btn-md btn-primary" id="tombolIjo">Daftar</button>
+                        <label for="" class="ijo">sudah punya akun?</label>
+                        <a href="{{url('login')}}" class="warning">Masuk</a>
                     </form>
                 </div>
                 <div class="col-sm-4">

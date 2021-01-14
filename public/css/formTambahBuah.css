@@ -8,6 +8,10 @@ label{
     font-size: 32px;
 }
 
+.gambar_buah{
+    width: 22%;
+}
+
 .ganti-hover:hover {
     border-color: #00b300;
  

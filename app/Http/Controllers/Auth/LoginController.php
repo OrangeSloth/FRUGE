@@ -45,21 +45,21 @@ class LoginController extends Controller
         $input = $request->all();
    
         $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required',
+            'email' => ['required', 'email', 'max:100'],
+            'password' => ['required', 'min:8'],
         ]);
    
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
             if (auth()->user()->is_admin == 1) {
                 // $user = Auth::user();
-                return redirect()->route('admin.index');
+                return redirect()->route('admin.index')->with('login','Login Berhasil');
             }else{
-                return redirect()->route('user.index');
+                return redirect()->route('user.index')->with('login','Login Success');
             }
         }else{
             return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
+                ->with('alert','Email-Address or Password Are Wrong.');
         }
           
     }

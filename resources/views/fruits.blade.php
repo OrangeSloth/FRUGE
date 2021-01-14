@@ -1,6 +1,6 @@
 @extends('layouts.adminLayout')
 
-@section('title', 'Storage')
+@section('title', 'Stok Buah')
 
 @section('content')
 <link href="{{ asset('css/fruits.css') }}" type="text/css" rel="stylesheet">
@@ -13,7 +13,8 @@
 
 <div class="row">
   <div class="col-md-3">
-    <img src="{{ asset('assets/cara_penggunaan_ikon_stok_admin.PNG') }}" width="auto" height="220px" alt="Penjelasan Ikon">
+    <!-- <img src="{{ asset('assets/cara_penggunaan_ikon_stok_admin.PNG') }}" width="auto" height="220px" alt="Penjelasan Ikon"> -->
+    <h1 class="mb-3">Stok Buah</h1>
   </div>
 </div>
 <div class="row mb-4">
@@ -40,12 +41,12 @@
             </a>
           </div>
           <div class="delete-buah">
-            <form action="/admin/fruits/{{$fruit->id}}" method="post" id="delete-form">
+            <form action="/admin/fruits/{{$fruit->id}}" method="post" class="delete_form">
               @method('delete')
               @csrf
-              <a href="#" onclick="document.getElementById('delete-form').submit()">
+              <button type="submit" class="" id="submitDeleteButton">
                 <img class="border-img" src="{{ asset('assets/delete_button.PNG') }}"  alt="">
-              </a>
+              </button>
             </form>
           </div>
         </div>

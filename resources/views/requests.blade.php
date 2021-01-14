@@ -5,6 +5,13 @@
 @section('content')
 <link href="{{ asset('css/request.css') }}" type="text/css" rel="stylesheet">
 
+ 
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
+
 <table class="table warna-tabel">
   <thead class="thead-light">
     <tr>
